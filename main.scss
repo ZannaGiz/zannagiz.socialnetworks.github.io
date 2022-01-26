@@ -1,0 +1,142 @@
+@import 'base/base';
+@import 'base/mixins';
+@import 'base/variables';
+
+body {
+    background-color: coral;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+ul {
+    width: 100%;
+    overflow: hidden;
+    background-color: lightslategray;
+    @include center();
+    z-index: 1;
+
+    li {
+        @include main-block(100px, $white);
+        position: relative;
+        overflow: hidden;
+        transition: 0.5s;
+        text-align: center;
+        float: left;
+
+        .icon {
+            @include main-block(100px, $white);
+            overflow: hidden;
+            border-right: 1px solid lightslategray;
+            position: relative;
+
+            &-little {
+                background-color: $main-color;
+                @extend .icon;
+                position: absolute;
+                transition: 0.5s;
+                left: 0;
+
+                img {
+                    display: block;
+                    @include logo-size(25px);
+                    @include icon-centrify();
+                }
+            }
+
+            &-big {
+                @extend .icon;
+                position: absolute;
+                top: 0;
+                left: 100px;
+                transition: 0.5s;
+
+                img {
+                    @include logo-size(60px);
+                    @include icon-centrify();
+                }
+            }
+
+        }
+
+        .social-info {
+            width: 400px;
+            position: absolute;
+            left: 100px;
+            top: 0;
+            display: block;
+            overflow: hidden;
+            text-align: left;
+
+            h1 {
+                margin-top: 90px;
+                margin-left: 10px;
+                font-size: 25px;
+                font-weight: bold;
+                z-index: 0;
+            }
+
+            p {
+                margin-top: 10px;
+                margin-left: 10px;
+                font-size: 15px;
+                word-spacing: 4px;
+                line-height: 20px;
+            }
+        }
+
+    }
+
+    .twitter .icon-big {
+        @include color_of_logo_bg($twitter)
+    }
+
+    .facebook .icon-big {
+        @include color_of_logo_bg($facebook)
+    }
+
+    .linkedin .icon-big {
+        @include color_of_logo_bg($linkedin)
+    }
+
+    .instagram .icon-big {
+        @include color_of_logo_bg($instagram)
+    }
+
+    .youtube .icon-big {
+        @include color_of_logo_bg($youtube)
+    }
+
+    .tumblr .icon-big {
+        @include color_of_logo_bg($tumblr)
+    }
+
+    .dribbble .icon-big {
+        @include color_of_logo_bg($dribbble)
+    }
+
+    li:last-child .icon {
+        border: none;
+    }
+
+    li:hover .icon {
+        border: none;
+
+        &-little {
+            left: -100px;
+        }
+
+        &-big {
+            left: 0;
+        }
+
+    }
+
+    li:hover {
+        @include main-block(500px, $white);
+    }
+
+    .hide {
+        @include main-block(300px,$white);
+        z-index: 1;
+    }
+}
